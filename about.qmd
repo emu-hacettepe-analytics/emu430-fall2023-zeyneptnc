@@ -5,26 +5,18 @@ sidebar: false
 
 # Education
 
--   B.S., Industrial Engineering, Hacettepe University, Turkey, 20xx - ongoing.
-
-# Work Experience
-
-## Employements
-
-1.  Firm xxx, position xx, year xxx
-
-2.  Firm yyy, position yyy, year yyy
+-   B.S., Industrial Engineering, Hacettepe University, Turkey, 2020 - ongoing.
 
 ## Internships
 
-1.  Firm aaa, position xx, year xxx
+1.  Firm - TÜBİTAK BİLGEM YTE, position - Aday Araştırmacı, year - 2023 / devam ediyor
 
-2.  Firm bbb, position yyy, year yyy
-
-# Projects
+2.  Firm - Limaş Liman İşletmeciliği, position - Operasyon ve Planlama Mühendisi, year - 2022
 
 # Competencies
 
-R, Quarto, Git, Python
+R, Quarto, Git, Python, Minitab, Ofis Programları, MS SQL
 
 # Hobbies
+
+Tenis oynamak, Balık tutmak, Yüzmek
