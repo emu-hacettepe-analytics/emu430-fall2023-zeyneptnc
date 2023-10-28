@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "[Student/Group Full Name]'s Analytics Lab"
+  title: "Zeynep Tuncaboylu's Analytics Lab"
   navbar:
     search: true
     left:
@@ -22,11 +22,9 @@ website:
             
     tools:
       - icon: github
-        href: https://twitter.com
-      - icon: twitter
-        href: https://twitter.com
+        href: https://emu-hacettepe-analytics.github.io/emu430-fall2023-zeyneptnc/
       - icon: linkedin
-        href: https://linkedin.com
+        href: https://tr.linkedin.com/in/zeynep-t-57b789232?trk=people-guest_people_search-card
 
   sidebar:
     - title: "Assignments"
