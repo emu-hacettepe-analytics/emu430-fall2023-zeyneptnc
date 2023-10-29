@@ -9,14 +9,18 @@ sidebar: false
 
 ## Internships
 
-1.  Firm - TÜBİTAK BİLGEM YTE, position - Aday Araştırmacı, year - 2023 / devam ediyor
+1.  Firm - TÜBİTAK BİLGEM YTE, position - Candidate Researcher, year - 2023 / ongoing
 
-2.  Firm - Limaş Liman İşletmeciliği, position - Operasyon ve Planlama Mühendisi, year - 2022
+2.  Firm - Limaş Liman İşletmeciliği, position - Operation and Planning Intern, year - 2022
 
 # Competencies
 
-R, Quarto, Git, Python, Minitab, Ofis Programları, MS SQL
+R, Quarto, Git, Python, Minitab, Office Programs, MS SQL
 
 # Hobbies
 
-Tenis oynamak, Balık tutmak, Yüzmek
+Playing tennis, Fishing, Swimming
+
+# CV
+
+--\> [Zeynep Tuncaboylu's CV](https://github.com/emu-hacettepe-analytics/emu430-fall2023-zeyneptnc/blob/main/CV.pdf)
