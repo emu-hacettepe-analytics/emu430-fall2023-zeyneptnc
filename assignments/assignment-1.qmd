@@ -4,12 +4,80 @@ title: "Assignment 1"
 
 # Assignment 1
 
+My first assignment has three parts.
+
+## (a) Summary of the Video
+
+::: {style="color: red; text-align: center;"}
+Tracy Teal / These are a few of my favorite things (about Quarto presentations)
+:::
+
+ The speaker in this video talks the benefits of giving a presentation in quarto in general. The speaker is Tracy, and she works for R Studio as the Director of the open-source program. Tracy shares that she loves exchanging ideas and that Google Docs is her go-to tool. As a result, she is quite enthusiastic about delivering the presentation, but she also acknowledges that she doesn't enjoy creating the slides, which is why she hasn't started. Before she met Quarto, she had never considered that she could put her data and code anywhere she wanted on the slides and integrate these arguments into them. She had also never thought that the slides could be automatically updated when she made major changes to them. She's talking about how Quarto has, for the first time, made preparation for presentations enjoyable which is why she's so excited about Quarto.
+
+ She is equating Quarto's features with her own favorite things. She begins to discuss "Visual Edits" after connecting "Raindrops on Roses" with the term. She says that when she renders the source in R Studio after making changes in the visual section, those changes show up in the presentation section below. She emphasizes how important this is to her because it's how she puts together her slides. She pairs "Whiskers on kittens" with "Columns and Tables" She points out Quarto's benefit, which is that we can write code to create columns and quickly change their widths. She claims that there is a great deal of flexibility in how we can arrange things in this space. Regarding 'Tables' she describes how, before Quarto, creating tables to add to slides was a complete pain, but now it's fun. She pairs "Notes for the Speaker" with "Bright Copper Kettles"
+
+![](images/Ekran%20Alıntısı.PNG)
+
+She says the speaker has access to all the information they need during the presentation, including the duration, topics to cover, speaker notes, and additional slides, thanks to the above code we write in R Studio. She combines "Code First Keeps Things Stable" with "Warm Woolen Mittens" Noting that Quarto integrates slides, figures, and code, she highlights the significance of reproducibility in scientific communication. Using a specific figure, the speaker had prepared a few presentations in the past. She tried to recall how to make it, but she was unable. She is reassured by Quarto that everything operates without any problems and that there is no problem. As a result, she thinks it's critical to share knowledge with both her former self and collaborators. She admits that her former self didn't always make the best decisions and that she doesn't always recall what she did. The more integrated everything is, the more documentation you can offer, which facilitates effective and accurate communication about your work as well as replication and sharing. She combines "Themes to Delight In" with "Brown Paper Packages" She discusses how switching up the theme of your presentations is simple with Quarto. Changing the theme will give your slides a new look without requiring you to start from scratch when designing them. She pairs "Formats to Share" with "Tied Up with String" She concludes by saying that she has reached the stage of sharing her presentations. She can share the presentations in PowerPoint, HTML, and PDF formats after they are ready.
+
+## (b) Three Differences Between R and Python
+
+**1.** While we can use statistical functions directly in R, we can use these functions by calling the library in Python.
+
+**In R:**
+
+x \<- c(2,4,6)
+
+average \<- mean(x)
+
+print(average)
+
+output: 4
+
+**In Python:**
+
+import numpy as np
+
+x = \[2,4,6\]
+
+average = np.mean(x)
+
+print(average)
+
+output: 4
+
+**2.** While "=" is used for the assignment sign in Python, "\<-" is used in R.
+
+**In R:**
+
+x \<- c(3,5,7)
+
+**In Python:**
+
+x = \[3,5,7\]
+
+**3.** Statisticians created the R language, so its operators are the first thing that comes to mind compared to Python.
+
+**In R:**
+
+2\^2 = 4
+
+**In Python:**
+
+2\*\*2 = 4
+
+## (c) "na_example" Data Set
+
 ```{r}
-1 + 1
+library(dslabs)
+data(na_example)
+na_example
+sum(is.na(na_example))
 ```
 
-My first assignment has two parts.
-
-## (a)
-
-## (b)
+```{r}
+no_nas <- ifelse(is.na(na_example),0,na_example)
+no_nas
+zero_count <- sum(no_nas == 0)
+sum(is.na(zero_count))
+```
