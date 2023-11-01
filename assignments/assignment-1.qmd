@@ -78,6 +78,5 @@ sum(is.na(na_example))
 ```{r}
 no_nas <- ifelse(is.na(na_example),0,na_example)
 no_nas
-zero_count <- sum(no_nas == 0)
-sum(is.na(zero_count))
+sum(is.na(no_nas))
 ```
