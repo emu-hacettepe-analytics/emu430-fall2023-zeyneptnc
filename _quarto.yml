@@ -43,8 +43,8 @@ format:
     toc: true
     toc-location: left
     theme: 
-      light: pulse 
-      dark: superhero
+      light: united
+      dark:  united
     css: styles.css
 
 
