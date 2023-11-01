@@ -26,45 +26,52 @@ She says the speaker has access to all the information they need during the pres
 
 **In R:**
 
-x \<- c(2,4,6)
-
-average \<- mean(x)
-
+```{r}
+x <- c(2,4,6)
+average <- mean(x)
 print(average)
-
-output: 4
+```
 
 **In Python:**
 
+```{python}
 import numpy as np
-
-x = \[2,4,6\]
-
+x = [2,4,6]
 average = np.mean(x)
-
 print(average)
-
-output: 4
+```
 
 **2.** While "=" is used for the assignment sign in Python, "\<-" is used in R.
 
 **In R:**
 
-x \<- c(3,5,7)
+```{r}
+x <- c(3,5,7)
+x
+```
 
 **In Python:**
 
-x = \[3,5,7\]
+```{python}
+x = [3,5,7]
+print(x)
+```
 
 **3.** Statisticians created the R language, so its operators are the first thing that comes to mind compared to Python.
 
 **In R:**
 
-2\^2 = 4
+```{r}
+y <- 2^2
+y
+```
 
 **In Python:**
 
-2\*\*2 = 4
+```{python}
+y = 2**2
+y
+```
 
 ## (c) "na_example" Data Set
 
