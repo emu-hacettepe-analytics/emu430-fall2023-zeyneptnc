@@ -23,4 +23,4 @@ Playing tennis, Fishing, Swimming
 
 # CV
 
---\> [Zeynep Tuncaboylu's CV](https://github.com/emu-hacettepe-analytics/emu430-fall2023-zeyneptnc/blob/main/CV.pdf)
+-   [Zeynep Tuncaboylu-CV](CV.pdf)
