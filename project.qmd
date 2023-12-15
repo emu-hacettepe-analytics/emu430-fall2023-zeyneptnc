@@ -5,7 +5,7 @@ sidebar: false
 
 I'm honored to be a member of the Data_Vizards project team.
 
-Below, you'll find a brief summary of our project. To access a detailed project description, please go to [https://\[https://emu-hacettepe-analytics.github.io/emu430-fall2023-team-data_vizards/\]](#0){.uri}.
+Below, you'll find a brief summary of our project. To access a detailed project description, please go to [https://\[](#0){.uri}<https://emu-hacettepe-analytics.github.io/emu430-fall2023-team-data_vizards/>[\]](#0){.uri}.
 
 **Summary**
 
