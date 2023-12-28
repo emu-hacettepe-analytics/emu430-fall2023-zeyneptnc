@@ -4,6 +4,197 @@ title: "Assignment 2"
 
 # Assignment 2
 
+**QUESTION 1 AND 2**
+
 ```{r}
-1 + 1
+#| warning: false
+#…….- 31.12.2009 --> 222
+url1 <- "https://m.imdb.com/search/title/?title_type=feature&release_date=,2009-12-31&num_votes=2500,&country_of_origin=TR&count=222"
+
+
+# 01.01.2010-31.12.2023 --> 247
+url2 <- "https://m.imdb.com/search/title/?title_type=feature&release_date=2010-01-01,2023-12-31&num_votes=2500,&country_of_origin=TR&count=247"
+
+vector_url <- c(url1,url2)
+
+library(tidyverse) 
+library(stringr) 
+library(readr)
+library(rvest) 
+
+data_html_vec <- lapply(vector_url, read_html)
+
+tab1 <- lapply(data_html_vec, function(html) html |> html_nodes(".ipc-title__text") |> html_text()) 
+combined_tab1 <- unlist(tab1)
+filter_tab1 <- combined_tab1[-c(1,224,225,473)]
+
+tab2 <- lapply(data_html_vec, function(html) html |>  html_nodes(".dli-title-metadata-item:nth-child(1)") |> html_text())
+combined_tab2 <- unlist(tab2)
+
+tab3 <- lapply(data_html_vec, function(html) html |> html_nodes(".dli-title-metadata-item:nth-child(2)") |> html_text())
+combined_tab3 <- unlist(tab3)
+
+tab4 <- lapply(data_html_vec, function(html) html |> html_nodes(".ratingGroup--imdb-rating") |> html_text())
+combined_tab4 <- unlist(tab4)
+
+tab5 <- lapply(data_html_vec, function(html) html |> html_nodes(".kRnqtn") |> html_text())
+combined_tab5 <- unlist(tab5)
+
+# extract titles (movie names)
+title_names <- lapply(data_html_vec, function(html) html |> html_nodes(".ipc-title__text") |> html_text())
+title_names <- unlist(title_names)
+title_names <- title_names[-c(1,224,225,473)]
+title_names <- str_split(title_names, " ", n = 2)
+title_names <- unlist(lapply(title_names, function(x) x[2]))
+
+# extract year (movie year)
+movie_year <- lapply(data_html_vec, function(html) html |> html_nodes(".dli-title-metadata-item:nth-child(1)") |> html_text())
+movie_year <- as.numeric(unlist(movie_year))
+
+# extract duration (movie duration)
+movie_duration <- lapply(data_html_vec, function(html) html |> html_nodes(".dli-title-metadata-item:nth-child(2)") |> html_text())
+movie_duration <- unlist(movie_duration)
+convert_minutes <- function(duration) {
+  get_minute <- strsplit(duration, "h|\\s|m")[[1]] 
+  hours <- as.numeric(get_minute[1])
+  minutes <- as.numeric(get_minute[3])
+  total_minutes <- hours * 60 + minutes
+  if (is.na(total_minutes)) {
+    return(hours)
+  }
+  return(total_minutes)
+}
+result <- as.numeric(lapply(movie_duration, convert_minutes))
+
+# extract rates (movie rates)
+movie_rates <- lapply(data_html_vec, function(html) html |> html_nodes(".ratingGroup--imdb-rating") |> html_text())
+movie_rates <- unlist(movie_rates)
+movie_rates <- str_split(movie_rates,"\\s",n = 2)
+movie_rates <- as.numeric(unlist(lapply(movie_rates, function(x) x[1])))
+
+# extract votes (movie votes)
+movie_votes <- lapply(data_html_vec, function(html) html |> html_nodes(".kRnqtn") |> html_text())
+movie_votes <- unlist(movie_votes)
+movie_votes <- str_split(movie_votes, "Votes", n = 2)
+movie_votes <- unlist(lapply(movie_votes, function(x) x[2]))
+movie_votes <- parse_number(sub(",", "", movie_votes))
+
+# create data frame
+my_data_frame <- data.frame(movie_names = title_names, movie_year = movie_year, movie_duration = result, movie_rates = movie_rates, movie_votes = movie_votes)
+head(my_data_frame)
 ```
+
+**QUESTION 3**
+
+I wrote separate code for the first 5 movies and the last 5 movies in this code. First, I sorted them from most viewed to least viewed (the first table shows the top 5 most viewed films). Then, I sorted them from least viewed to most viewed (the second table shows the bottom 5 least viewed films).
+
+```{r}
+# question3 (a)
+desc_order <- arrange(my_data_frame,desc(movie_rates))
+top_5 <- head(desc_order,5)
+print(top_5)
+asc_order <- my_data_frame |> arrange(movie_rates)
+bottom_5 <- head(asc_order,5)
+print(bottom_5)
+```
+
+I watched 'Hababam Sınıfı' and 'Hababam Sınıfı Sınıfta Kaldı'. I agree with their IMDb ratings because I think these movies are very entertaining. However, I have not watched other movies, so I cannot comment on them.
+
+```{r}
+# question3 (b)
+my_fav_movie1 <- my_data_frame |> filter(movie_names == "Yedinci Kogustaki Mucize")
+my_fav_movie2 <- my_data_frame |> filter(movie_names == "Ayla: The Daughter of War")
+bind_rows(my_fav_movie1,my_fav_movie2)
+```
+
+Their ratings and voting are high and they watched by lots of people.
+
+```{r}
+# question3 (c)
+
+# scatter plot_1
+asc_order <- my_data_frame |> arrange(movie_year)
+avg_rating_year <- asc_order |>  group_by(movie_year)|> summarise(avg_rating = mean(movie_rates))
+avg_rating_year|> ggplot(aes(movie_year,avg_rating)) + geom_point(color="darkblue") + xlab("Year") +
+  ylab("Average Rating") + ggtitle("Average Rating by Year")
+
+# scatter plot_2
+number_of_movie <- my_data_frame |> group_by(movie_year) |> summarise(movie_number = length(movie_names)) 
+number_of_movie |>  ggplot(aes(movie_year,movie_number)) + geom_point(color="darkgreen")+ xlab("Year") +
+  ylab("Number of Movies") + ggtitle("Number of Movies by Year")
+
+# box plot
+my_data_frame |> mutate(movie_year = reorder(movie_year, movie_rates, FUN = median)) |> 
+  ggplot(aes(x = as.factor(movie_year), y = movie_rates, fill = as.factor(movie_year))) + geom_boxplot() +
+  xlab("Movie Year") + ylab("Movie Rating") + ggtitle("Rating by Year") +
+  theme(axis.text.x = element_text(angle= 90, hjust = 1)) + xlab("")  +
+  scale_y_continuous(trans = "log10")
+```
+
+The first two plot is scatter plots and the last one is a box-plot. If we look at the median values of these box plots, we can easily see that the highest rating belongs to the year of 1977, while the lowest rating belongs to the year of 2020.We observe that in the year 2006, the movie rating range is particularly wide. In my opinion, older movies are better than newer ones, and the graph is also confirms my assumption.
+
+```{r}
+# question3 (d)
+my_data_frame |> ggplot(aes(movie_votes,movie_rates)) + geom_point() +
+  geom_smooth(method = "lm", se = FALSE,color="red") +
+  ggtitle("Scatter Plot of movie_votes and movie_rates")
+```
+
+There is a correlation between the number of votes and the ratings.As the number of votes increases, ratings also increase slightly.
+
+```{r}
+# question3 (e)
+my_data_frame |> ggplot(aes(movie_duration,movie_rates)) + geom_point() +
+  geom_smooth(method = "lm", se = FALSE,color="purple") +
+  ggtitle("Scatter Plot of movie_duration and movie_rates")
+```
+
+There is no correlation between the ratings and the duration.
+
+**QUESTION 4**
+
+```{r}
+# question4 
+url3 <- "https://m.imdb.com/search/title/?title_type=feature&groups=top_1000&country_of_origin=TR"
+
+data_html <- read_html(url3)
+
+# movie_names
+tab6 <- data_html |> html_nodes(".ipc-title__text") |> html_text()
+combined_tab6 <- unlist(tab6)
+movie_names <- combined_tab6[-c(1,13)]
+movie_names <- str_split(movie_names, " ", n = 2)
+movie_names <- unlist(lapply(movie_names, function(x) x[2]))
+
+#movie_year
+tab7 <- data_html |> html_nodes(".dli-title-metadata-item:nth-child(1)") |> html_text()
+movie_year <- as.numeric(unlist(tab7))
+
+# create data frame
+my_data_frame2 <- data.frame(movie_names = movie_names, movie_year = movie_year)
+
+# join
+join <- inner_join(my_data_frame,my_data_frame2,by = c("movie_names","movie_year"))
+arrange_join <- arrange(join,desc(movie_rates))
+print(arrange_join)
+# My first data frame
+head(desc_order,11)
+```
+
+The first table is a new table and the second table is my previous table. 11 movies ranking is not the same as the first 11 highest-rated movies in my initial data frame. I think the reason for this is that IMDb's top 1000 movies list may not be based solely on ratings.
+
+According to my research, IMDb's calculation method for the movies depends on,
+
+R = average for the movie (mean) = (rating)
+
+v = number of votes for the movie = (votes)
+
+m = minimum votes required to be listed in the Top Rated 1000 list
+
+C = the mean vote across the whole report these parameters respectively, and the calculated as;
+
+weighted rating (WR) = (v ÷ (v+m)) × R + (m ÷ (v+m)) × C
+
+------------------------------------------------------------------------
+
+**NOTES:** I write **get_minute \<- strsplit(duration, "h\|\\s\|m")\[\[1\]\]** line of code with the help of AI and I found **function(html)** function with the help of AI.
