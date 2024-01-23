@@ -13,7 +13,7 @@ website:
         href: about.qmd
       - text: My Posts
         href: posts.qmd
-      - text: "EMU430 Coursework"
+      - text: "Data Analytics Coursework"
         menu:
           - text: Assignments
             href: assignments.qmd
