@@ -9,7 +9,9 @@ sidebar: false
 ::: {style="text-align: center;"}
 ![](Adsız tasarım (2).gif){width="304"}
 
-Hello! My name is Zeynep Tuncaboylu
+Hello! 
+
+My name is Zeynep Tuncaboylu
 
 This is my personal webpage.
 
