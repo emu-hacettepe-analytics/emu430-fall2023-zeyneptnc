@@ -1,12 +1,17 @@
+::: {style="text-align: center; font-size: 2em; font-weight: bold;"}
+Welcome to My Analytics Lab
+:::
+
 ---
-title: "Welcome to My Analytics Lab"
 sidebar: false 
 ---
+
+::: {style="text-align: center;"}
+![](Adsız tasarım.gif){width="304"}
 
 Hello! My name is Zeynep Tuncaboylu
 
 This is my personal webpage.
 
 Please stay tuned to follow my works on data analytics, blog posts, and more.
-
-
+:::
