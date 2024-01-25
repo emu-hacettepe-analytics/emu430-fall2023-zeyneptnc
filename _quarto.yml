@@ -31,8 +31,8 @@ website:
       search: true
       contents:
         - assignments.qmd
-        - assignments/Introduction to R Assignment.qmd
-        - assignments/Web Scraping (Imdb Ratings) Assignment.qmd  
+        - assignments/assignment-1.qmd
+        - assignments/assignment-2.qmd  
   page-navigation: true
   back-to-top-navigation: true
   page-footer:
