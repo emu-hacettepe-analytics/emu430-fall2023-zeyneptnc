@@ -3,7 +3,8 @@ project:
   output-dir: docs
 
 website:
-  title: "Zeynep TUNCABOYLU's Analytics Lab"
+  title: "Zeynep TUNCABOYLU's Analytics Lab
+          Do Your Job with Pleasure, Success Will Easily Find You!"
   navbar:
     search: true
     left:
