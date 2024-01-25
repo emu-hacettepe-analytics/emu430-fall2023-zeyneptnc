@@ -1,5 +1,5 @@
 ---
-title: "Assignment 1"
+title: "Introduction to R Assignment"
 ---
 
 # Assignment 1
