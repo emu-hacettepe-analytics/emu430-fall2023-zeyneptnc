@@ -3,15 +3,75 @@ title: "About Me"
 sidebar: false 
 ---
 
+::: {style="text-align: center;"}
+![](about-me.gif){width="500"}
+:::
+
 # Education
 
 -   B.S., Industrial Engineering, Hacettepe University, Turkey, 2020 - ongoing.
 
-## Internships
+# Internships
 
-1.  Firm - TÜBİTAK BİLGEM YTE, position - Candidate Researcher, year - 2023 / ongoing
+1.  Firm - **TÜBİTAK BİLGEM YTE**, position - Candidate Researcher, year - 2023 / ongoing
 
-2.  Firm - Limaş Liman İşletmeciliği, position - Operation and Planning Intern, year - 2022
+2.  Firm - **Limaş Liman İşletmeciliği**, position - Operation and Planning Intern, year - 2022
+
+# Projects
+
+-   Data Analytics
+
+-   Total Quality Management"
+
+-   Maintenance Engineering
+
+-   Probability & Statistics For Engineers I-II
+
+-   Work Analysis & Design
+
+-   Applied Operation Research
+
+-   New Product Development
+
+-   Branding and Reputation Administration
+
+-   Lean Production
+
+-   Optimization and Modeling I-II
+
+-   Production Planning and Control I-II
+
+-   Project Management
+
+# Course, Seminar, and Certification Information
+
+-   Lean Leadership Training
+
+-   Production Management Training
+
+-   Demand Forecasting, Production Planning Training
+
+-   FMCG Career (Fast Moving Consumer Goods Training)
+
+-   MS SQL Training
+
+-   Advanced Excel Development and Compliance Training
+
+-   Mind Mapping
+
+-   Quality Awareness Training
+
+-   Process Analysis and Modeling Training
+
+-   Individual Career Planning
+
+-   Change and Continuous Improvement (Kaizen)
+
+-   6 Sigma
+
+-   Human Resources Management
+
+-   CV Preparation and Interview Techniques
 
 # Competencies
 
@@ -20,7 +80,3 @@ R, Quarto, Git, Python, Minitab, Office Programs, MS SQL
 # Hobbies
 
 Playing tennis, Fishing, Swimming
-
-# CV
-
--   [Zeynep Tuncaboylu-CV](CV.pdf)
