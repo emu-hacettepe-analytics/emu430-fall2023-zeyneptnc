@@ -17,7 +17,7 @@ website:
         menu:
           - text: Assignments
             href: assignments.qmd
-          - text: Projects
+          - text: Project
             href: project.qmd
             
     tools:
