@@ -36,7 +36,7 @@ website:
   page-navigation: true
   back-to-top-navigation: true
   page-footer:
-    center: "Hacettepe IE" 
+    center: "Hacettepe - IE" 
     border: true
 format:
   html:
