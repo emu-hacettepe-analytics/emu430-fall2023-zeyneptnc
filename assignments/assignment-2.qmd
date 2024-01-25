@@ -1,5 +1,5 @@
 ---
-title: "Assignment 2"
+title: "Web Scraping (IMDB Ratings) Assignment"
 ---
 
 # Assignment 2
